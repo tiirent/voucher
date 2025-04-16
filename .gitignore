@@ -23,8 +23,6 @@ lerna-debug.log*
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
-!.vscode/settings.json
-!.vscode/launch.json
 .idea
 .DS_Store
 *.suo
@@ -32,12 +30,6 @@ lerna-debug.log*
 *.njsproj
 *.sln
 *.sw?
-*.sublime-*
-.history
-.project
-.classpath
-.settings/
-*.code-workspace
 
 # Environment variables
 .env
@@ -64,6 +56,4 @@ out
 .tmp
 
 # System Files
-Thumbs.db
-.DS_Store
-Desktop.ini 
+Thumbs.db 
