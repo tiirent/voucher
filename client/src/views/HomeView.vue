@@ -1,32 +1,23 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
-const count = ref(0)
+const router = useRouter()
+const goToCreate = () => router.push('/create')
 </script>
 
 <template>
-  <v-card class="pa-4" width="400">
-    <v-card-title class="text-h4 text-center mb-4">
-      Welcome to Vuetify
-    </v-card-title>
-    
-    <v-card-text>
-      <p class="text-body-1 mb-4">
-        This is a Vue 3 + Vuetify 3 + TypeScript project.
-      </p>
-      
-      <v-btn
-        color="primary"
-        @click="count++"
-        class="mb-4"
-      >
-        Count is: {{ count }}
-      </v-btn>
-      
-      <p class="text-body-2">
-        Edit
-        <code>views/HomeView.vue</code> to test hot module replacement.
-      </p>
-    </v-card-text>
-  </v-card>
+  <v-container class="flex-column">
+		<h1 class="text-h3 font-weight-bold mb-4">hey, i got something 4 u</h1>
+		<v-img
+			src="/assets/ticket.png"
+			alt="Arcade Ticket"
+			class="mb-4"
+			width="250"
+      height="200"
+			@click="goToCreate"
+			style="cursor: pointer;"
+		/>
+		<p class="text-subtitle-1">u can use it to make more vouchers</p>
+	</v-container>
 </template>
