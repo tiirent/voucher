@@ -11,10 +11,16 @@ const emit = defineEmits(['update:showDialog'])
 
 const email = ref('')
 const password = ref('')
+const confirmPassword = ref('')
 const errorMessage = ref('')
 const successMessage = ref('')
 
 const handleSignup = async () => {
+  if (password.value !== confirmPassword.value) {
+    errorMessage.value = 'Passwords do not match.'
+    successMessage.value = ''
+    return
+  }
   const { data, error } = await supabase.auth.signUp({ email: email.value, password: password.value })
   if (error) {
     errorMessage.value = error.message
@@ -34,6 +40,7 @@ const handleSignup = async () => {
         <h2>Sign Up</h2>
         <v-text-field v-model="email" label="Email" type="email"></v-text-field>
         <v-text-field v-model="password" label="Password" type="password"></v-text-field>
+        <v-text-field v-model="confirmPassword" label="Reenter Password" type="password"></v-text-field>
         <v-btn @click="handleSignup">Submit</v-btn>
         <p v-if="errorMessage" style="color: red;">{{ errorMessage }}</p>
         <p v-if="successMessage" style="color: green;">{{ successMessage }}</p>
