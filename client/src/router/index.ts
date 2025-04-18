@@ -17,7 +17,7 @@ const router = createRouter({
     {
       path: '/create',
       name: 'CreateVoucher',
-      component: () => import('../views/CreateVoucherView.vue'),
+      component: () => import('../views/CreateView.vue'),
     },
     {
       path: '/manage',
