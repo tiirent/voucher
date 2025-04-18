@@ -15,7 +15,12 @@ import AppNavbar from '@/components/AppNavbar.vue'
 </template>
 
 <style>
+.v-layout {
+  height: 100vh;
+  overflow: hidden;
+}
 .v-main {
-  min-height: 100vh;
+  height: 100%;
+  min-height: unset;
 }
 </style>
