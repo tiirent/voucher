@@ -1,19 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { Voucher } from '@/models/Voucher'
 
 const router = useRouter()
 
-const voucherForm = ref({
-  title: '',
-  description: '',
-  expiryDate: '',
-  theme: {
-    color: '#64A9AF',
-    emoji: '🎁'
-  },
-  recipient: '',
-})
+const voucherForm = ref(new Voucher())
 
 const loading = ref(false)
 
