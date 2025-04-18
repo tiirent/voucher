@@ -43,7 +43,7 @@ const handleSignup = async () => {
   }
   
   if (password.value !== confirmPassword.value) {
-    errorMessage.value = 'Passwords do not match.'
+    errorMessage.value = 'passwords do not match'
     password.value = ''
     confirmPassword.value = ''
     passwordError.value = true
@@ -56,9 +56,8 @@ const handleSignup = async () => {
     errorMessage.value = error.message
     successMessage.value = ''
   } else {
-    successMessage.value = 'Sign up successful! Please check your email.'
+    successMessage.value = 'sign up successful, please check your email'
     errorMessage.value = ''
-    emit('update:showDialog', false)
   }
 }
 </script>
@@ -67,12 +66,12 @@ const handleSignup = async () => {
   <v-dialog width="400" :model-value="props.showDialog" @update:model-value="emit('update:showDialog', $event)">
     <v-card>
       <v-card-text>
-        <h2 class="text-h4 mb-4">Sign Up</h2>
-        <v-text-field v-model="email" label="Email" type="email" :error="emailError"></v-text-field>
-        <v-text-field v-model="password" label="Password" type="password" :error="passwordError"></v-text-field>
-        <v-text-field v-model="confirmPassword" label="Re-enter Password" type="password" :error="confirmPasswordError"></v-text-field>
+        <h2 class="text-h4 mb-4">sign up</h2>
+        <v-text-field v-model="email" label="email" type="email" :error="emailError"></v-text-field>
+        <v-text-field v-model="password" label="password" type="password" :error="passwordError"></v-text-field>
+        <v-text-field v-model="confirmPassword" label="re-enter Password" type="password" :error="confirmPasswordError"></v-text-field>
         <div class="d-flex justify-end">
-          <v-btn color="primary" variant="outlined" class="mb-2" density="comfortable" @click="handleSignup">Submit</v-btn>
+          <v-btn color="primary" variant="outlined" class="mb-2" density="comfortable" @click="handleSignup">submit</v-btn>
         </div>
         <p v-if="errorMessage" style="color: red;">{{ errorMessage }}</p>
         <p v-if="successMessage" style="color: green;">{{ successMessage }}</p>

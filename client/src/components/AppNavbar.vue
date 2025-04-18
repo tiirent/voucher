@@ -11,10 +11,6 @@ const router = useRouter()
 const theme = useTheme()
 const isSignupDialogOpen = ref(false)
 const isLoginDialogOpen = ref(false)
-const email = ref('')
-const password = ref('')
-const errorMessage = ref('')
-const successMessage = ref('')
 const isSignedIn = ref(false)
 
 const navigateTo = (path: string) => {
@@ -23,18 +19,6 @@ const navigateTo = (path: string) => {
 const toggleTheme = () => {
   const currentTheme = theme.global.name.value
   theme.global.name.value = currentTheme === 'light' ? 'dark' : 'light'
-}
-
-const handleSignup = async () => {
-  const { data, error } = await supabase.auth.signUp({ email: email.value, password: password.value })
-  if (error) {
-    errorMessage.value = error.message
-    successMessage.value = ''
-  } else {
-    successMessage.value = 'Sign up successful! Please check your email.'
-    errorMessage.value = ''
-    isSignupDialogOpen.value = false
-  }
 }
 
 const handleSignOut = async () => {
@@ -64,20 +48,20 @@ onMounted(() => {
     </v-btn>
     <template v-if="!isSignedIn">
       <v-btn color="primary" variant="outlined" class="mr-2" density="comfortable" @click="isLoginDialogOpen = true">
-        Login
+        login
       </v-btn>
       <v-btn color="primary" variant="outlined" class="mr-2" density="comfortable" @click="isSignupDialogOpen = true">
-        Signup
+        sign up
       </v-btn>
     </template>
     <template v-if="isSignedIn">
       <v-btn color="primary" variant="outlined" class="mr-2" density="comfortable" @click="handleSignOut">
-        Sign Out
+        sign out
       </v-btn>
     </template>
   </v-app-bar>
-  <SignupDialog v-model="isSignupDialogOpen" />
-  <LoginDialog v-model="isLoginDialogOpen" />
+  <SignupDialog v-model:showDialog="isSignupDialogOpen" />
+  <LoginDialog v-model:showDialog ="isLoginDialogOpen" />
 </template>
 
 <style scoped>

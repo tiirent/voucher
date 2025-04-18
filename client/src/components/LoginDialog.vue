@@ -20,9 +20,9 @@ const handleLogin = async () => {
     errorMessage.value = error.message
     successMessage.value = ''
   } else {
-    successMessage.value = 'Login successful!'
+    successMessage.value = 'login successful!'
     errorMessage.value = ''
-    emit('update:showDialog', false)  // Close the dialog on success
+    emit('update:showDialog', false)
   }
 }
 </script>
@@ -31,11 +31,11 @@ const handleLogin = async () => {
   <v-dialog width="400" :model-value="props.showDialog" @update:model-value="emit('update:showDialog', $event)">
     <v-card>
       <v-card-text>
-        <h2 class="text-h4 mb-4">Login</h2>
-        <v-text-field v-model="email" label="Email" type="email"></v-text-field>
-        <v-text-field v-model="password" label="Password" type="password"></v-text-field>
+        <h2 class="text-h4 mb-4">login</h2>
+        <v-text-field v-model="email" label="email" type="email"></v-text-field>
+        <v-text-field v-model="password" label="password" type="password"></v-text-field>
         <div class="d-flex justify-end">
-          <v-btn color="primary" variant="outlined" class="mb-2" density="comfortable" @click="handleLogin">Submit</v-btn>
+          <v-btn color="primary" variant="outlined" class="mb-2" density="comfortable" @click="handleLogin">submit</v-btn>
         </div>
         <p v-if="errorMessage" style="color: red;">{{ errorMessage }}</p>
         <p v-if="successMessage" style="color: green;">{{ successMessage }}</p>

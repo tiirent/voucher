@@ -24,3 +24,7 @@ a,
     place-items: center;
   }
 }
+
+.v-btn__content {
+	text-transform: none;
+}
