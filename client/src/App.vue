@@ -4,14 +4,14 @@ import AppNavbar from '@/components/AppNavbar.vue'
 </script>
 
 <template>
-  <v-layout>
+  <v-app>
     <AppNavbar />
     <v-main>
       <v-container>
         <RouterView />
       </v-container>
     </v-main>
-  </v-layout>
+  </v-app>
 </template>
 
 <style>

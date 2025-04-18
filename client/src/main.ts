@@ -16,6 +16,27 @@ import router from './router'
 const vuetify = createVuetify({
   components,
   directives,
+  theme: {
+    defaultTheme: 'dark',
+    themes: {
+      light: {
+        dark: false,
+        colors: {
+          primary: '#64A9AF',
+          background: '#ffffff',
+          'on-background': 'rgb(58, 55, 55)'
+        }
+      },
+      dark: {
+        dark: true,
+        colors: {
+          primary: '#CC90C8',
+          background: '#181818',
+          'on-background': 'rgb(152, 149, 149)'
+        }
+      }
+    }
+  }
 })
 
 const app = createApp(App)
