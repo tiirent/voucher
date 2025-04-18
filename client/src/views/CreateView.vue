@@ -23,17 +23,8 @@ const createVoucher = async () => {
   }
   loading.value = true
   try {
-    const { error } = await supabase.from('vouchers').insert([
-      {
-        user_id: user.value.id,
-        title: voucherForm.value.title,
-        description: voucherForm.value.description,
-        expiry_date: voucherForm.value.expiryDate ? voucherForm.value.expiryDate : null,
-        theme_color: voucherForm.value.theme.color,
-        theme_emoji: voucherForm.value.theme.emoji,
-        recipient: voucherForm.value.recipient
-      }
-    ])
+    const storedVoucher = voucherForm.value.toSupabaseObject(user.value.id);
+    const { error } = await supabase.from('vouchers').insert([storedVoucher]);
     if (error) {
       console.error('Supabase error details:', error)
       if (error.code === '42501') {
@@ -55,6 +46,17 @@ const createVoucher = async () => {
     loading.value = false
   }
 }
+
+const fetchAndPopulateVoucher = async () => {
+  try {
+    const { data, error } = await supabase.from('vouchers').select('*').eq('id', 1).single();  // Example: fetch a voucher by ID
+    if (error) throw error;
+    const voucherInstance = Voucher.fromSupabaseObject(data);  // Populate the Voucher model
+    console.log('Populated Voucher:', voucherInstance);  // Use as needed, e.g., display or update form
+  } catch (error) {
+    console.error('Error fetching voucher:', error);
+  }
+};
 </script>
 
 <template>

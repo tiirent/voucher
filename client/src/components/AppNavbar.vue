@@ -27,9 +27,8 @@ const handleSignOut = async () => {
 }
 
 onMounted(() => {
-  supabase.auth.onAuthStateChange((event, session) => {
+  supabase.auth.onAuthStateChange((event) => {
     if (event === 'SIGNED_IN') {
-      console.log('User signed in:', session?.user)
       isSignedIn.value = true
     } else if (event === 'SIGNED_OUT') {
       console.log('User signed out')
