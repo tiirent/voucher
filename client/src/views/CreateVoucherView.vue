@@ -38,7 +38,7 @@ const createVoucher = async () => {
       <v-row>
         <!-- Form Section -->
         <v-col cols="12" md="6">
-          <v-card class="h-100" color="transparent" flat>
+          <v-card color="transparent" flat>
             <v-card-title class="text-h5 px-4 pt-4">
               Create Your Voucher
             </v-card-title>
@@ -83,7 +83,6 @@ const createVoucher = async () => {
   
                 <div class="d-flex justify-end">
                   <v-btn variant="outlined"
-                    color="#64A9AF"
                     class="mr-2"
                     density="comfortable"
                     :loading="loading" 
@@ -98,7 +97,7 @@ const createVoucher = async () => {
   
         <!-- Preview Section -->
         <v-col cols="12" md="6">
-          <v-card class="h-100" color="transparent" flat>
+          <v-card color="transparent" flat>
             <v-card-title class="text-h5 px-4 pt-4">
               Voucher Preview
             </v-card-title>
@@ -113,7 +112,7 @@ const createVoucher = async () => {
 </template>
 
 <style scoped>
-.h-100 {
-  height: 100%;
+.v-btn {
+  color: var(--color-accent-2);
 }
 </style> 

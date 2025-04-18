@@ -9,11 +9,10 @@ const navigateTo = (path: string) => {
 
 <template>
   <v-app-bar flat color="transparent">
-    <v-app-bar-title @click="navigateTo('/')" style="cursor: pointer;">4u</v-app-bar-title>
+    <v-app-bar-title @click="navigateTo('/')" style="cursor: pointer">4u</v-app-bar-title>
     <v-spacer></v-spacer>
     <v-btn
       variant="outlined"
-      color="#64A9AF"
       class="mr-2"
       density="comfortable"
     >
@@ -21,7 +20,6 @@ const navigateTo = (path: string) => {
     </v-btn>
     <v-btn
       variant="outlined"
-      color="#64A9AF"
       density="comfortable"
     >
       Signup
@@ -30,8 +28,7 @@ const navigateTo = (path: string) => {
 </template>
 
 <style scoped>
-.v-app-bar-title {
-  color: #64A9AF;
+.v-app-bar-title, .v-btn {
+  color: var(--color-accent-1);
 }
-
 </style> 
