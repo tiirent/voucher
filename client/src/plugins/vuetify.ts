@@ -18,4 +18,7 @@ export default createVuetify({
       },
     },
   },
+  icons: {
+		defaultSet: 'mdi',
+	},
 }) 

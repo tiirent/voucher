@@ -22,7 +22,7 @@ const createVoucher = async () => {
   try {
     // TODO: Implement API call to create voucher
     console.log('Creating voucher:', voucherForm.value)
-    router.push('/vouchers')
+    router.push('/manage')
   } catch (error) {
     console.error('Error creating voucher:', error)
   } finally {
