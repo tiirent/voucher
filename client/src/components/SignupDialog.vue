@@ -64,14 +64,16 @@ const handleSignup = async () => {
 </script>
 
 <template>
-  <v-dialog :model-value="props.showDialog" @update:model-value="emit('update:showDialog', $event)">
+  <v-dialog width="400" :model-value="props.showDialog" @update:model-value="emit('update:showDialog', $event)">
     <v-card>
       <v-card-text>
-        <h2>Sign Up</h2>
+        <h2 class="text-h4 mb-4">Sign Up</h2>
         <v-text-field v-model="email" label="Email" type="email" :error="emailError"></v-text-field>
         <v-text-field v-model="password" label="Password" type="password" :error="passwordError"></v-text-field>
-        <v-text-field v-model="confirmPassword" label="Reenter Password" type="password" :error="confirmPasswordError"></v-text-field>
-        <v-btn @click="handleSignup">Submit</v-btn>
+        <v-text-field v-model="confirmPassword" label="Re-enter Password" type="password" :error="confirmPasswordError"></v-text-field>
+        <div class="d-flex justify-end">
+          <v-btn color="primary" variant="outlined" class="mb-2" density="comfortable" @click="handleSignup">Submit</v-btn>
+        </div>
         <p v-if="errorMessage" style="color: red;">{{ errorMessage }}</p>
         <p v-if="successMessage" style="color: green;">{{ successMessage }}</p>
       </v-card-text>
