@@ -6,8 +6,8 @@ import AppNavbar from '@/components/AppNavbar.vue'
 <template>
   <v-layout>
     <AppNavbar />
-    <v-main class="d-flex align-start">
-      <v-container class="pa-0">
+    <v-main>
+      <v-container>
         <RouterView />
       </v-container>
     </v-main>
@@ -16,6 +16,6 @@ import AppNavbar from '@/components/AppNavbar.vue'
 
 <style>
 .v-main {
-  min-height: fit-content !important;
+  min-height: 100vh;
 }
 </style>
